@@ -1,0 +1,2062 @@
+includes:
+	- parametersSchema.neon
+
+parameters:
+	bootstrapFiles:
+		- ../stubs/runtime/ReflectionUnionType.php
+		- ../stubs/runtime/ReflectionAttribute.php
+		- ../stubs/runtime/Attribute.php
+		- ../stubs/runtime/ReflectionIntersectionType.php
+
+	excludes_analyse: []
+	excludePaths: null
+	level: null
+	paths: []
+	exceptions:
+		implicitThrows: true
+		reportUncheckedExceptionDeadCatch: true
+		uncheckedExceptionRegexes: []
+		uncheckedExceptionClasses: []
+		checkedExceptionRegexes: []
+		checkedExceptionClasses: []
+		check:
+			missingCheckedExceptionInThrows: false
+			tooWideThrowType: false
+
+	featureToggles:
+		bleedingEdge: false
+		disableRuntimeReflectionProvider: true
+		skipCheckGenericClasses:
+			- DatePeriod
+			- CallbackFilterIterator
+			- FilterIterator
+			- RecursiveCallbackFilterIterator
+			- AppendIterator
+			- NoRewindIterator
+			- LimitIterator
+			- InfiniteIterator
+			- CachingIterator
+			- RegexIterator
+
+		explicitMixedInUnknownGenericNew: false
+		explicitMixedForGlobalVariables: false
+		explicitMixedViaIsArray: false
+		arrayFilter: false
+		arrayUnpacking: false
+		nodeConnectingVisitorCompatibility: true
+		nodeConnectingVisitorRule: false
+		illegalConstructorMethodCall: false
+		disableCheckMissingIterableValueType: false
+		strictUnnecessaryNullsafePropertyFetch: false
+		looseComparison: false
+		consistentConstructor: false
+		checkUnresolvableParameterTypes: false
+		readOnlyByPhpDoc: false
+		phpDocParserRequireWhitespaceBeforeDescription: false
+		runtimeReflectionRules: false
+		notAnalysedTrait: false
+		curlSetOptTypes: false
+		listType: false
+		missingMagicSerializationRule: false
+		nullContextForVoidReturningFunctions: false
+		unescapeStrings: false
+		duplicateStubs: false
+		invarianceComposition: false
+		alwaysTrueAlwaysReported: false
+		disableUnreachableBranchesRules: false
+		varTagType: false
+		closureDefaultParameterTypeRule: false
+		newRuleLevelHelper: false
+		instanceofType: false
+		paramOutVariance: false
+		allInvalidPhpDocs: false
+		strictStaticMethodTemplateTypeVariance: false
+		propertyVariance: false
+		genericPrototypeMessage: false
+		stricterFunctionMap: false
+		invalidPhpDocTagLine: false
+		detectDeadTypeInMultiCatch: false
+		zeroFiles: false
+		callUserFunc: false
+
+	fileExtensions:
+		- php
+
+	checkAdvancedIsset: false
+	checkAlwaysTrueCheckTypeFunctionCall: %featureToggles.alwaysTrueAlwaysReported%
+	checkAlwaysTrueInstanceof: %featureToggles.alwaysTrueAlwaysReported%
+	checkAlwaysTrueStrictComparison: %featureToggles.alwaysTrueAlwaysReported%
+	checkAlwaysTrueLooseComparison: %featureToggles.alwaysTrueAlwaysReported%
+	reportAlwaysTrueInLastCondition: false
+	checkClassCaseSensitivity: false
+	checkExplicitMixed: false
+	checkImplicitMixed: false
+	checkFunctionArgumentTypes: false
+	checkFunctionNameCase: false
+	checkGenericClassInNonGenericObjectType: false
+	checkInternalClassCaseSensitivity: false
+	checkMissingIterableValueType: false
+	checkMissingCallableSignature: false
+	checkMissingVarTagTypehint: false
+	checkArgumentsPassedByReference: false
+	checkMaybeUndefinedVariables: false
+	checkNullables: false
+	checkThisOnly: true
+	checkUnionTypes: false
+	checkBenevolentUnionTypes: false
+	checkExplicitMixedMissingReturn: false
+	checkPhpDocMissingReturn: false
+	checkPhpDocMethodSignatures: false
+	checkExtraArguments: false
+	checkMissingTypehints: false
+	checkTooWideReturnTypesInProtectedAndPublicMethods: false
+	checkUninitializedProperties: false
+	checkDynamicProperties: false
+	deprecationRulesInstalled: false
+	inferPrivatePropertyTypeFromConstructor: false
+	reportMaybes: false
+	reportMaybesInMethodSignatures: false
+	reportMaybesInPropertyPhpDocTypes: false
+	reportStaticMethodSignatures: false
+	reportWrongPhpDocTypeInVarTag: false
+	mixinExcludeClasses: []
+	scanFiles: []
+	scanDirectories: []
+	parallel:
+		jobSize: 20
+		processTimeout: 600.0
+		maximumNumberOfProcesses: 32
+		minimumNumberOfJobsPerProcess: 2
+		buffer: 134217728
+
+	phpVersion: null
+	polluteScopeWithLoopInitialAssignments: true
+	polluteScopeWithAlwaysIterableForeach: true
+	propertyAlwaysWrittenTags: []
+	propertyAlwaysReadTags: []
+	fixerTmpDir: %pro.tmpDir%
+	additionalConstructors: []
+	treatPhpDocTypesAsCertain: true
+	usePathConstantsAsConstantString: false
+	rememberPossiblyImpureFunctionValues: true
+	tipsOfTheDay: true
+	reportMagicMethods: false
+	reportMagicProperties: false
+	ignoreErrors: []
+	internalErrorsCountLimit: 50
+	cache:
+		nodesByFileCountMax: 1024
+		nodesByStringCountMax: 256
+
+	reportUnmatchedIgnoredErrors: true
+	scopeClass: PHPStan\Analyser\MutatingScope
+	typeAliases: []
+	universalObjectCratesClasses:
+		- stdClass
+
+	stubFiles:
+		- ../stubs/ReflectionAttribute.stub
+		- ../stubs/ReflectionClass.stub
+		- ../stubs/ReflectionClassConstant.stub
+		- ../stubs/ReflectionFunctionAbstract.stub
+		- ../stubs/ReflectionMethod.stub
+		- ../stubs/ReflectionParameter.stub
+		- ../stubs/ReflectionProperty.stub
+		- ../stubs/iterable.stub
+		- ../stubs/ArrayObject.stub
+		- ../stubs/WeakReference.stub
+		- ../stubs/ext-ds.stub
+		- ../stubs/ImagickPixel.stub
+		- ../stubs/PDOStatement.stub
+		- ../stubs/date.stub
+		- ../stubs/ibm_db2.stub
+		- ../stubs/mysqli.stub
+		- ../stubs/zip.stub
+		- ../stubs/dom.stub
+		- ../stubs/spl.stub
+		- ../stubs/SplObjectStorage.stub
+		- ../stubs/Exception.stub
+		- ../stubs/arrayFunctions.stub
+		- ../stubs/core.stub
+		- ../stubs/typeCheckingFunctions.stub
+
+	earlyTerminatingMethodCalls: []
+	earlyTerminatingFunctionCalls: []
+	memoryLimitFile: %tmpDir%/.memory_limit
+	tempResultCachePath: %tmpDir%/resultCaches
+	resultCachePath: %tmpDir%/resultCache.php
+	resultCacheChecksProjectExtensionFilesDependencies: false
+	staticReflectionClassNamePatterns: []
+	dynamicConstantNames:
+		- ICONV_IMPL
+		- LIBXML_VERSION
+		- LIBXML_DOTTED_VERSION
+		- Memcached::HAVE_ENCODING
+		- Memcached::HAVE_IGBINARY
+		- Memcached::HAVE_JSON
+		- Memcached::HAVE_MSGPACK
+		- Memcached::HAVE_SASL
+		- Memcached::HAVE_SESSION
+		- PHP_VERSION
+		- PHP_MAJOR_VERSION
+		- PHP_MINOR_VERSION
+		- PHP_RELEASE_VERSION
+		- PHP_VERSION_ID
+		- PHP_EXTRA_VERSION
+		- PHP_WINDOWS_VERSION_MAJOR
+		- PHP_WINDOWS_VERSION_MINOR
+		- PHP_WINDOWS_VERSION_BUILD
+		- PHP_ZTS
+		- PHP_DEBUG
+		- PHP_MAXPATHLEN
+		- PHP_OS
+		- PHP_OS_FAMILY
+		- PHP_SAPI
+		- PHP_EOL
+		- PHP_INT_MAX
+		- PHP_INT_MIN
+		- PHP_INT_SIZE
+		- PHP_FLOAT_DIG
+		- PHP_FLOAT_EPSILON
+		- PHP_FLOAT_MIN
+		- PHP_FLOAT_MAX
+		- DEFAULT_INCLUDE_PATH
+		- PEAR_INSTALL_DIR
+		- PEAR_EXTENSION_DIR
+		- PHP_EXTENSION_DIR
+		- PHP_PREFIX
+		- PHP_BINDIR
+		- PHP_BINARY
+		- PHP_MANDIR
+		- PHP_LIBDIR
+		- PHP_DATADIR
+		- PHP_SYSCONFDIR
+		- PHP_LOCALSTATEDIR
+		- PHP_CONFIG_FILE_PATH
+		- PHP_CONFIG_FILE_SCAN_DIR
+		- PHP_SHLIB_SUFFIX
+		- PHP_FD_SETSIZE
+		- OPENSSL_VERSION_NUMBER
+		- ZEND_DEBUG_BUILD
+		- ZEND_THREAD_SAFE
+
+	customRulesetUsed: null
+	editorUrl: null
+	editorUrlTitle: null
+	errorFormat: null
+	sysGetTempDir: ::sys_get_temp_dir()
+	pro:
+		dnsServers:
+			- '1.1.1.2'
+
+		tmpDir: %sysGetTempDir%/phpstan-fixer
+
+	__validate: true
+
+extensions:
+	rules: PHPStan\DependencyInjection\RulesExtension
+	conditionalTags: PHPStan\DependencyInjection\ConditionalTagsExtension
+	parametersSchema: PHPStan\DependencyInjection\ParametersSchemaExtension
+	validateIgnoredErrors: PHPStan\DependencyInjection\ValidateIgnoredErrorsExtension
+
+rules:
+	- PHPStan\Rules\Debug\DumpTypeRule
+	- PHPStan\Rules\Debug\FileAssertRule
+
+conditionalTags:
+	PHPStan\Rules\Exceptions\MissingCheckedExceptionInFunctionThrowsRule:
+		phpstan.rules.rule: %exceptions.check.missingCheckedExceptionInThrows%
+
+	PHPStan\Rules\Exceptions\MissingCheckedExceptionInMethodThrowsRule:
+		phpstan.rules.rule: %exceptions.check.missingCheckedExceptionInThrows%
+
+	PHPStan\Rules\Exceptions\TooWideFunctionThrowTypeRule:
+		phpstan.rules.rule: %exceptions.check.tooWideThrowType%
+
+	PHPStan\Rules\Exceptions\TooWideMethodThrowTypeRule:
+		phpstan.rules.rule: %exceptions.check.tooWideThrowType%
+
+	PhpParser\NodeVisitor\NodeConnectingVisitor:
+		phpstan.parser.richParserNodeVisitor: %featureToggles.nodeConnectingVisitorCompatibility%
+
+	PHPStan\Parser\CurlSetOptArgVisitor:
+		phpstan.parser.richParserNodeVisitor: %featureToggles.curlSetOptTypes%
+
+	PHPStan\Parser\TypeTraverserInstanceofVisitor:
+		phpstan.parser.richParserNodeVisitor: %featureToggles.instanceofType%
+
+services:
+	-
+		class: PhpParser\BuilderFactory
+
+	-
+		class: PHPStan\Parser\LexerFactory
+
+	-
+		class: PhpParser\NodeVisitor\NameResolver
+		arguments:
+			options:
+				preserveOriginalNames: true
+
+	-
+		class: PHPStan\Parser\ArrayFilterArgVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\ArrayMapArgVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\ArrayWalkArgVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\ClosureArgVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\CurlSetOptArgVisitor
+
+	-
+		class: PHPStan\Parser\TypeTraverserInstanceofVisitor
+
+	-
+		class: PHPStan\Parser\ArrowFunctionArgVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\NewAssignedToPropertyVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\ParentStmtTypesVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\TryCatchTypeVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parser\LastConditionVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PhpParser\NodeVisitor\NodeConnectingVisitor
+
+	-
+		class: PHPStan\Node\Printer\ExprPrinter
+
+	-
+		class: PHPStan\Node\Printer\Printer
+
+	-
+		class: PHPStan\Broker\AnonymousClassNameHelper
+		arguments:
+			relativePathHelper: @simpleRelativePathHelper
+
+	-
+		class: PHPStan\Php\PhpVersion
+		factory: @PHPStan\Php\PhpVersionFactory::create
+
+	-
+		class: PHPStan\Php\PhpVersionFactory
+		factory: @PHPStan\Php\PhpVersionFactoryFactory::create
+
+	-
+		class: PHPStan\Php\PhpVersionFactoryFactory
+		arguments:
+			versionId: %phpVersion%
+			composerAutoloaderProjectPaths: %composerAutoloaderProjectPaths%
+
+	-
+		class: PHPStan\PhpDocParser\Lexer\Lexer
+
+	-
+		class: PHPStan\PhpDocParser\Parser\TypeParser
+		arguments:
+			quoteAwareConstExprString: %featureToggles.unescapeStrings%
+
+	-
+		class: PHPStan\PhpDocParser\Parser\ConstExprParser
+		factory: @PHPStan\PhpDoc\ConstExprParserFactory::create()
+
+	-
+		class: PHPStan\PhpDocParser\Parser\PhpDocParser
+		arguments:
+			requireWhitespaceBeforeDescription: %featureToggles.phpDocParserRequireWhitespaceBeforeDescription%
+			preserveTypeAliasesWithInvalidTypes: true
+
+	-
+		class: PHPStan\PhpDoc\ConstExprParserFactory
+		arguments:
+			unescapeStrings: %featureToggles.unescapeStrings%
+
+	-
+		class: PHPStan\PhpDoc\PhpDocInheritanceResolver
+
+	-
+		class: PHPStan\PhpDoc\PhpDocNodeResolver
+
+	-
+		class: PHPStan\PhpDoc\PhpDocStringResolver
+
+	-
+		class: PHPStan\PhpDoc\ConstExprNodeResolver
+
+	-
+		class: PHPStan\PhpDoc\TypeNodeResolver
+
+	-
+		class: PHPStan\PhpDoc\TypeNodeResolverExtensionRegistryProvider
+		factory: PHPStan\PhpDoc\LazyTypeNodeResolverExtensionRegistryProvider
+
+	-
+		class: PHPStan\PhpDoc\TypeStringResolver
+
+	-
+		class: PHPStan\PhpDoc\StubValidator
+		arguments:
+			duplicateStubs: %featureToggles.duplicateStubs%
+
+	-
+		class: PHPStan\PhpDoc\CountableStubFilesExtension
+		arguments:
+			bleedingEdge: %featureToggles.bleedingEdge%
+
+		tags:
+			- phpstan.stubFilesExtension
+
+	-
+		class: PHPStan\PhpDoc\DefaultStubFilesProvider
+		arguments:
+			stubFiles: %stubFiles%
+			currentWorkingDirectory: %currentWorkingDirectory%
+
+		autowired:
+			- PHPStan\PhpDoc\StubFilesProvider
+
+	-
+		class: PHPStan\PhpDoc\JsonValidateStubFilesExtension
+		tags:
+			- phpstan.stubFilesExtension
+
+	-
+		class: PHPStan\Analyser\Analyser
+		arguments:
+			internalErrorsCountLimit: %internalErrorsCountLimit%
+
+	-
+		class: PHPStan\Analyser\FileAnalyser
+		arguments:
+			parser: @defaultAnalysisParser
+			reportUnmatchedIgnoredErrors: %reportUnmatchedIgnoredErrors%
+
+	-
+		class: PHPStan\Analyser\RuleErrorTransformer
+
+	-
+		class: PHPStan\Analyser\IgnoredErrorHelper
+		arguments:
+			ignoreErrors: %ignoreErrors%
+			reportUnmatchedIgnoredErrors: %reportUnmatchedIgnoredErrors%
+
+	-
+		class: PHPStan\Analyser\LazyInternalScopeFactory
+		arguments:
+			scopeClass: %scopeClass%
+
+		autowired:
+			- PHPStan\Analyser\InternalScopeFactory
+
+	-
+		class: PHPStan\Analyser\ScopeFactory
+
+	-
+		class: PHPStan\Analyser\NodeScopeResolver
+		arguments:
+			parser: @defaultAnalysisParser
+			reflector: @nodeScopeResolverReflector
+			polluteScopeWithLoopInitialAssignments: %polluteScopeWithLoopInitialAssignments%
+			polluteScopeWithAlwaysIterableForeach: %polluteScopeWithAlwaysIterableForeach%
+			earlyTerminatingMethodCalls: %earlyTerminatingMethodCalls%
+			earlyTerminatingFunctionCalls: %earlyTerminatingFunctionCalls%
+			implicitThrows: %exceptions.implicitThrows%
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+			detectDeadTypeInMultiCatch: %featureToggles.detectDeadTypeInMultiCatch%
+
+	-
+		class: PHPStan\Analyser\ConstantResolver
+		factory: @PHPStan\Analyser\ConstantResolverFactory::create()
+
+	-
+		class: PHPStan\Analyser\ConstantResolverFactory
+
+	-
+		implement: PHPStan\Analyser\ResultCache\ResultCacheManagerFactory
+		arguments:
+			scanFileFinder: @fileFinderScan
+			cacheFilePath: %resultCachePath%
+			analysedPaths: %analysedPaths%
+			composerAutoloaderProjectPaths: %composerAutoloaderProjectPaths%
+			usedLevel: %usedLevel%
+			cliAutoloadFile: %cliAutoloadFile%
+			bootstrapFiles: %bootstrapFiles%
+			scanFiles: %scanFiles%
+			scanDirectories: %scanDirectories%
+			checkDependenciesOfProjectExtensionFiles: %resultCacheChecksProjectExtensionFilesDependencies%
+
+	-
+		class: PHPStan\Analyser\ResultCache\ResultCacheClearer
+		arguments:
+			cacheFilePath: %resultCachePath%
+
+	-
+		class: PHPStan\Cache\Cache
+		arguments:
+			storage: @cacheStorage
+
+	-
+		class: PHPStan\Collectors\Registry
+		factory: @PHPStan\Collectors\RegistryFactory::create
+
+	-
+		class: PHPStan\Collectors\RegistryFactory
+
+	-
+		class: PHPStan\Command\AnalyseApplication
+		arguments:
+			internalErrorsCountLimit: %internalErrorsCountLimit%
+
+	-
+		class: PHPStan\Command\AnalyserRunner
+
+	-
+		class: PHPStan\Command\FixerApplication
+		arguments:
+			analysedPaths: %analysedPaths%
+			currentWorkingDirectory: %currentWorkingDirectory%
+			proTmpDir: %pro.tmpDir%
+			dnsServers: %pro.dnsServers%
+
+	-
+		class: PHPStan\Dependency\DependencyResolver
+
+	-
+		class: PHPStan\Dependency\ExportedNodeFetcher
+		arguments:
+			parser: @defaultAnalysisParser
+
+	-
+		class: PHPStan\Dependency\ExportedNodeResolver
+
+	-
+		class: PHPStan\Dependency\ExportedNodeVisitor
+
+	-
+		class: PHPStan\DependencyInjection\Container
+		factory: PHPStan\DependencyInjection\MemoizingContainer
+		arguments:
+			originalContainer: @PHPStan\DependencyInjection\Nette\NetteContainer
+
+	-
+		class: PHPStan\DependencyInjection\Nette\NetteContainer
+		autowired:
+			- PHPStan\DependencyInjection\Nette\NetteContainer
+
+	-
+		class: PHPStan\DependencyInjection\DerivativeContainerFactory
+		arguments:
+			currentWorkingDirectory: %currentWorkingDirectory%
+			tempDirectory: %tempDir%
+			additionalConfigFiles: %additionalConfigFiles%
+			analysedPaths: %analysedPaths%
+			composerAutoloaderProjectPaths: %composerAutoloaderProjectPaths%
+			analysedPathsFromConfig: %analysedPathsFromConfig%
+			usedLevel: %usedLevel%
+			generateBaselineFile: %generateBaselineFile%
+			cliAutoloadFile: %cliAutoloadFile%
+
+	-
+		class: PHPStan\DependencyInjection\Reflection\ClassReflectionExtensionRegistryProvider
+		factory: PHPStan\DependencyInjection\Reflection\LazyClassReflectionExtensionRegistryProvider
+
+	-
+		class: PHPStan\DependencyInjection\Type\DynamicReturnTypeExtensionRegistryProvider
+		factory: PHPStan\DependencyInjection\Type\LazyDynamicReturnTypeExtensionRegistryProvider
+
+	-
+		class: PHPStan\DependencyInjection\Type\OperatorTypeSpecifyingExtensionRegistryProvider
+		factory: PHPStan\DependencyInjection\Type\LazyOperatorTypeSpecifyingExtensionRegistryProvider
+
+	-
+		class: PHPStan\DependencyInjection\Type\DynamicThrowTypeExtensionProvider
+		factory: PHPStan\DependencyInjection\Type\LazyDynamicThrowTypeExtensionProvider
+
+	-
+		class: PHPStan\File\FileHelper
+		arguments:
+			workingDirectory: %currentWorkingDirectory%
+
+	-
+		class: PHPStan\File\FileExcluderFactory
+		arguments:
+			obsoleteExcludesAnalyse: %excludes_analyse%
+			excludePaths: %excludePaths%
+
+	-
+		implement: PHPStan\File\FileExcluderRawFactory
+
+	fileExcluderAnalyse:
+		class: PHPStan\File\FileExcluder
+		factory: @PHPStan\File\FileExcluderFactory::createAnalyseFileExcluder()
+		autowired: false
+
+	fileExcluderScan:
+		class: PHPStan\File\FileExcluder
+		factory: @PHPStan\File\FileExcluderFactory::createScanFileExcluder()
+		autowired: false
+
+	fileFinderAnalyse:
+		class: PHPStan\File\FileFinder
+		arguments:
+			fileExcluder: @fileExcluderAnalyse
+			fileExtensions: %fileExtensions%
+
+		autowired: false
+
+	fileFinderScan:
+		class: PHPStan\File\FileFinder
+		arguments:
+			fileExcluder: @fileExcluderScan
+			fileExtensions: %fileExtensions%
+
+		autowired: false
+
+	-
+		class: PHPStan\File\FileMonitor
+		arguments:
+			fileFinder: @fileFinderAnalyse
+
+	-
+		class: PHPStan\NodeVisitor\StatementOrderVisitor
+		tags:
+			- phpstan.parser.richParserNodeVisitor
+
+	-
+		class: PHPStan\Parallel\ParallelAnalyser
+		arguments:
+			internalErrorsCountLimit: %internalErrorsCountLimit%
+			processTimeout: %parallel.processTimeout%
+			decoderBufferSize: %parallel.buffer%
+
+	-
+		class: PHPStan\Parallel\Scheduler
+		arguments:
+			jobSize: %parallel.jobSize%
+			maximumNumberOfProcesses: %parallel.maximumNumberOfProcesses%
+			minimumNumberOfJobsPerProcess: %parallel.minimumNumberOfJobsPerProcess%
+
+	-
+		class: PHPStan\Parser\FunctionCallStatementFinder
+
+	-
+		class: PHPStan\Process\CpuCoreCounter
+
+	-
+		implement: PHPStan\Reflection\FunctionReflectionFactory
+		arguments:
+			parser: @defaultAnalysisParser
+
+	-
+		class: PHPStan\Reflection\InitializerExprTypeResolver
+		arguments:
+			usePathConstantsAsConstantString: %usePathConstantsAsConstantString%
+
+	-
+		class: PHPStan\Reflection\Annotations\AnnotationsMethodsClassReflectionExtension
+
+	-
+		class: PHPStan\Reflection\Annotations\AnnotationsPropertiesClassReflectionExtension
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceLocator\CachingVisitor
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceLocator\FileNodesFetcher
+		arguments:
+			parser: @defaultAnalysisParser
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceLocator\ComposerJsonAndInstalledJsonSourceLocatorMaker
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceLocator\OptimizedDirectorySourceLocatorFactory
+		arguments:
+			fileFinder: @fileFinderScan
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceLocator\OptimizedDirectorySourceLocatorRepository
+
+	-
+		implement: PHPStan\Reflection\BetterReflection\SourceLocator\OptimizedPsrAutoloaderLocatorFactory
+
+	-
+		implement: PHPStan\Reflection\BetterReflection\SourceLocator\OptimizedSingleFileSourceLocatorFactory
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceLocator\OptimizedSingleFileSourceLocatorRepository
+
+	-
+		class: PHPStan\Reflection\Mixin\MixinMethodsClassReflectionExtension
+		tags:
+			- phpstan.broker.methodsClassReflectionExtension
+
+		arguments:
+			mixinExcludeClasses: %mixinExcludeClasses%
+
+	-
+		class: PHPStan\Reflection\Mixin\MixinPropertiesClassReflectionExtension
+		tags:
+			- phpstan.broker.propertiesClassReflectionExtension
+
+		arguments:
+			mixinExcludeClasses: %mixinExcludeClasses%
+
+	-
+		class: PHPStan\Reflection\Php\PhpClassReflectionExtension
+		arguments:
+			parser: @defaultAnalysisParser
+			inferPrivatePropertyTypeFromConstructor: %inferPrivatePropertyTypeFromConstructor%
+			universalObjectCratesClasses: %universalObjectCratesClasses%
+
+	-
+		implement: PHPStan\Reflection\Php\PhpMethodReflectionFactory
+		arguments:
+			parser: @defaultAnalysisParser
+
+	-
+		class: PHPStan\Reflection\Php\Soap\SoapClientMethodsClassReflectionExtension
+		tags:
+			- phpstan.broker.methodsClassReflectionExtension
+
+	-
+		class: PHPStan\Reflection\Php\EnumAllowedSubTypesClassReflectionExtension
+		tags:
+			- phpstan.broker.allowedSubTypesClassReflectionExtension
+
+	-
+		class: PHPStan\Reflection\Php\UniversalObjectCratesClassReflectionExtension
+		tags:
+			- phpstan.broker.propertiesClassReflectionExtension
+
+		arguments:
+			classes: %universalObjectCratesClasses%
+
+	-
+		class: PHPStan\Reflection\PHPStan\NativeReflectionEnumReturnDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+		arguments:
+			className: PHPStan\Reflection\ClassReflection
+			methodName: getNativeReflection
+
+	-
+		class: PHPStan\Reflection\PHPStan\NativeReflectionEnumReturnDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+		arguments:
+			className: PHPStan\Reflection\Php\BuiltinMethodReflection
+			methodName: getDeclaringClass
+
+	-
+		class: PHPStan\Reflection\ReflectionProvider\ReflectionProviderProvider
+		factory: PHPStan\Reflection\ReflectionProvider\LazyReflectionProviderProvider
+
+	-
+		class: PHPStan\Reflection\SignatureMap\NativeFunctionReflectionProvider
+		arguments:
+			reflector: @betterReflectionReflector
+
+	-
+		class: PHPStan\Reflection\SignatureMap\SignatureMapParser
+
+	-
+		class: PHPStan\Reflection\SignatureMap\FunctionSignatureMapProvider
+		arguments:
+			stricterFunctionMap: %featureToggles.stricterFunctionMap%
+
+		autowired:
+			- PHPStan\Reflection\SignatureMap\FunctionSignatureMapProvider
+
+	-
+		class: PHPStan\Reflection\SignatureMap\Php8SignatureMapProvider
+		autowired:
+			- PHPStan\Reflection\SignatureMap\Php8SignatureMapProvider
+
+	-
+		class: PHPStan\Reflection\SignatureMap\SignatureMapProviderFactory
+
+	-
+		class: PHPStan\Reflection\SignatureMap\SignatureMapProvider
+		factory: @PHPStan\Reflection\SignatureMap\SignatureMapProviderFactory::create()
+
+	-
+		class: PHPStan\Rules\Api\ApiRuleHelper
+
+	-
+		class: PHPStan\Rules\AttributesCheck
+		arguments:
+			deprecationRulesInstalled: %deprecationRulesInstalled%
+
+	-
+		class: PHPStan\Rules\Arrays\NonexistentOffsetInArrayDimFetchCheck
+		arguments:
+			reportMaybes: %reportMaybes%
+			bleedingEdge: %featureToggles.bleedingEdge%
+
+	-
+		class: PHPStan\Rules\ClassCaseSensitivityCheck
+		arguments:
+			checkInternalClassCaseSensitivity: %checkInternalClassCaseSensitivity%
+
+	-
+		class: PHPStan\Rules\Classes\LocalTypeAliasesCheck
+		arguments:
+			globalTypeAliases: %typeAliases%
+
+	-
+		class: PHPStan\Rules\Comparison\ConstantConditionRuleHelper
+		arguments:
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+			looseComparisonRuleEnabled: %featureToggles.looseComparison%
+
+	-
+		class: PHPStan\Rules\Comparison\ImpossibleCheckTypeHelper
+		arguments:
+			universalObjectCratesClasses: %universalObjectCratesClasses%
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+			nullContextForVoidReturningFunctions: %featureToggles.nullContextForVoidReturningFunctions%
+
+	-
+		class: PHPStan\Rules\Exceptions\DefaultExceptionTypeResolver
+		arguments:
+			uncheckedExceptionRegexes: %exceptions.uncheckedExceptionRegexes%
+			uncheckedExceptionClasses: %exceptions.uncheckedExceptionClasses%
+			checkedExceptionRegexes: %exceptions.checkedExceptionRegexes%
+			checkedExceptionClasses: %exceptions.checkedExceptionClasses%
+
+		autowired:
+			- PHPStan\Rules\Exceptions\DefaultExceptionTypeResolver
+
+	-
+		class: PHPStan\Rules\Exceptions\MissingCheckedExceptionInFunctionThrowsRule
+
+	-
+		class: PHPStan\Rules\Exceptions\MissingCheckedExceptionInMethodThrowsRule
+
+	-
+		class: PHPStan\Rules\Exceptions\MissingCheckedExceptionInThrowsCheck
+		arguments:
+			exceptionTypeResolver: @exceptionTypeResolver
+
+	-
+		class: PHPStan\Rules\Exceptions\TooWideFunctionThrowTypeRule
+
+	-
+		class: PHPStan\Rules\Exceptions\TooWideMethodThrowTypeRule
+
+	-
+		class: PHPStan\Rules\Exceptions\TooWideThrowTypeCheck
+
+	-
+		class: PHPStan\Rules\FunctionCallParametersCheck
+		arguments:
+			checkArgumentTypes: %checkFunctionArgumentTypes%
+			checkArgumentsPassedByReference: %checkArgumentsPassedByReference%
+			checkExtraArguments: %checkExtraArguments%
+			checkMissingTypehints: %checkMissingTypehints%
+			checkUnresolvableParameterTypes: %featureToggles.checkUnresolvableParameterTypes%
+
+	-
+		class: PHPStan\Rules\FunctionDefinitionCheck
+		arguments:
+			checkClassCaseSensitivity: %checkClassCaseSensitivity%
+			checkThisOnly: %checkThisOnly%
+
+	-
+		class: PHPStan\Rules\FunctionReturnTypeCheck
+
+	-
+		class: PHPStan\Rules\Generics\CrossCheckInterfacesHelper
+
+	-
+		class: PHPStan\Rules\Generics\GenericAncestorsCheck
+		arguments:
+			checkGenericClassInNonGenericObjectType: %checkGenericClassInNonGenericObjectType%
+			skipCheckGenericClasses: %featureToggles.skipCheckGenericClasses%
+
+	-
+		class: PHPStan\Rules\Generics\GenericObjectTypeCheck
+
+	-
+		class: PHPStan\Rules\Generics\TemplateTypeCheck
+		arguments:
+			checkClassCaseSensitivity: %checkClassCaseSensitivity%
+
+	-
+		class: PHPStan\Rules\Generics\VarianceCheck
+		arguments:
+			checkParamOutVariance: %featureToggles.paramOutVariance%
+			strictStaticVariance: %featureToggles.strictStaticMethodTemplateTypeVariance%
+
+	-
+		class: PHPStan\Rules\IssetCheck
+		arguments:
+			checkAdvancedIsset: %checkAdvancedIsset%
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+			strictUnnecessaryNullsafePropertyFetch: %featureToggles.strictUnnecessaryNullsafePropertyFetch%
+
+	-
+		class: PHPStan\Rules\Methods\MethodCallCheck
+		arguments:
+			checkFunctionNameCase: %checkFunctionNameCase%
+			reportMagicMethods: %reportMagicMethods%
+
+	-
+		class: PHPStan\Rules\Methods\StaticMethodCallCheck
+		arguments:
+			checkFunctionNameCase: %checkFunctionNameCase%
+			reportMagicMethods: %reportMagicMethods%
+
+	-
+		class: PHPStan\Rules\Methods\MethodSignatureRule
+		arguments:
+			reportMaybes: %reportMaybesInMethodSignatures%
+			reportStatic: %reportStaticMethodSignatures%
+
+	-
+		class: PHPStan\Rules\Methods\MethodParameterComparisonHelper
+		arguments:
+			genericPrototypeMessage: %featureToggles.genericPrototypeMessage%
+
+	-
+		class: PHPStan\Rules\MissingTypehintCheck
+		arguments:
+			checkMissingIterableValueType: %checkMissingIterableValueType%
+			disableCheckMissingIterableValueType: %featureToggles.disableCheckMissingIterableValueType%
+			checkGenericClassInNonGenericObjectType: %checkGenericClassInNonGenericObjectType%
+			checkMissingCallableSignature: %checkMissingCallableSignature%
+			skipCheckGenericClasses: %featureToggles.skipCheckGenericClasses%
+
+	-
+		class: PHPStan\Rules\NullsafeCheck
+
+	-
+		class: PHPStan\Rules\Constants\LazyAlwaysUsedClassConstantsExtensionProvider
+
+	-
+		class: PHPStan\Rules\PhpDoc\ConditionalReturnTypeRuleHelper
+
+	-
+		class: PHPStan\Rules\PhpDoc\AssertRuleHelper
+
+	-
+		class: PHPStan\Rules\PhpDoc\UnresolvableTypeHelper
+
+	-
+		class: PHPStan\Rules\PhpDoc\VarTagTypeRuleHelper
+		arguments:
+			checkTypeAgainstPhpDocType: %reportWrongPhpDocTypeInVarTag%
+
+	-
+		class: PHPStan\Rules\Playground\NeverRuleHelper
+
+	-
+		class: PHPStan\Rules\Properties\LazyReadWritePropertiesExtensionProvider
+
+	-
+		class: PHPStan\Rules\Properties\PropertyDescriptor
+
+	-
+		class: PHPStan\Rules\Properties\PropertyReflectionFinder
+
+	-
+		class: PHPStan\Rules\RuleLevelHelper
+		arguments:
+			checkNullables: %checkNullables%
+			checkThisOnly: %checkThisOnly%
+			checkUnionTypes: %checkUnionTypes%
+			checkExplicitMixed: %checkExplicitMixed%
+			checkImplicitMixed: %checkImplicitMixed%
+			newRuleLevelHelper: %featureToggles.newRuleLevelHelper%
+			checkBenevolentUnionTypes: %checkBenevolentUnionTypes%
+
+	-
+		class: PHPStan\Rules\UnusedFunctionParametersCheck
+
+	-
+		class: PHPStan\Type\FileTypeMapper
+		arguments:
+			phpParser: @defaultAnalysisParser
+
+	-
+		class: PHPStan\Type\TypeAliasResolver
+		factory: PHPStan\Type\UsefulTypeAliasResolver
+		arguments:
+			globalTypeAliases: %typeAliases%
+
+	-
+		class: PHPStan\Type\TypeAliasResolverProvider
+		factory: PHPStan\Type\LazyTypeAliasResolverProvider
+
+	-
+		class: PHPStan\Type\BitwiseFlagHelper
+
+	-
+		class: PHPStan\Type\Php\ArgumentBasedFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayIntersectKeyFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayChunkFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayColumnFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayCombineFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayCurrentDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayFillFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayFillKeysFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayFilterFunctionReturnTypeReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayFlipFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayKeyDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayKeyExistsFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayKeyFirstDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayKeyLastDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayKeysFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayMapFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayMergeFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayNextDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayPopFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayRandFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayReduceFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayReplaceFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayReverseFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayShiftFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArraySliceFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArraySpliceFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArraySearchFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArraySearchFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayValuesFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArraySumFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\AssertThrowTypeExtension
+		tags:
+			- phpstan.dynamicFunctionThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\BackedEnumFromMethodDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\Base64DecodeDynamicFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\BcMathStringOrNullReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ClosureBindDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ClosureBindToDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ClosureFromCallableDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\CompactFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+		arguments:
+			checkMaybeUndefinedVariables: %checkMaybeUndefinedVariables%
+
+	-
+		class: PHPStan\Type\Php\ConstantFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ConstantHelper
+
+	-
+		class: PHPStan\Type\Php\CountFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\CountFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\CurlGetinfoFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\CurlInitReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateFormatFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateFormatMethodReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateIntervalConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateIntervalDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateTimeCreateDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateTimeDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateTimeModifyReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+		arguments:
+			dateTimeClass: DateTime
+
+	-
+		class: PHPStan\Type\Php\DateTimeModifyReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+		arguments:
+			dateTimeClass: DateTimeImmutable
+
+	-
+		class: PHPStan\Type\Php\DateTimeConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DateTimeZoneConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DsMapDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DsMapDynamicMethodThrowTypeExtension
+		tags:
+			- phpstan.dynamicMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DioStatDynamicFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ExplodeFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\FilterFunctionReturnTypeHelper
+
+	-
+		class: PHPStan\Type\Php\FilterInputDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\FilterVarDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\FilterVarArrayDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\GetCalledClassDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\GetClassDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\GetParentClassDynamicFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\GettypeFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\GettimeofdayDynamicFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\HashFunctionsReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\IntdivThrowTypeExtension
+		tags:
+			- phpstan.dynamicFunctionThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\IniGetReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\JsonThrowTypeExtension
+		tags:
+			- phpstan.dynamicFunctionThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionClassConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionFunctionConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionMethodConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionPropertyConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrContainingTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\SimpleXMLElementClassPropertyReflectionExtension
+		tags:
+			- phpstan.broker.propertiesClassReflectionExtension
+
+	-
+		class: PHPStan\Type\Php\SimpleXMLElementConstructorThrowTypeExtension
+		tags:
+			- phpstan.dynamicStaticMethodThrowTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StatDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\MethodExistsTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\PropertyExistsTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\MinMaxFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\NumberFormatFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\PathinfoFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\PregFilterFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\PregSplitDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionClassIsSubclassOfTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.methodTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\ReplaceFunctionsDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ArrayPointerFunctionsDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\LtrimFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\MbFunctionsReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\MbConvertEncodingFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\MbSubstituteCharacterDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\MbStrlenFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\MicrotimeFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\HrtimeFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ImplodeFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\NonEmptyStringFunctionsReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrCaseFunctionsReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrlenFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrPadFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrRepeatFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\SubstrDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ThrowableReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ParseUrlFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\TriggerErrorDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\VersionCompareFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\PowFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\RoundFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrtotimeFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\RandomIntFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\RangeFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\AssertFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\ClassExistsFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\ClassImplementsFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DefineConstantTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\DefinedConstantTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\FunctionExistsFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\InArrayFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\IsArrayFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+		arguments:
+			explicitMixed: %featureToggles.explicitMixedViaIsArray%
+
+	-
+		class: PHPStan\Type\Php\IsCallableFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\IsIterableFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\IsSubclassOfFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\IteratorToArrayFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\IsAFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\IsAFunctionTypeSpecifyingHelper
+
+	-
+		class: PHPStan\Type\Php\CtypeDigitFunctionTypeSpecifyingExtension
+		tags:
+			- phpstan.typeSpecifier.functionTypeSpecifyingExtension
+
+	-
+		class: PHPStan\Type\Php\JsonThrowOnErrorDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\TypeSpecifyingFunctionsDynamicReturnTypeExtension
+		arguments:
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+			universalObjectCratesClasses: %universalObjectCratesClasses%
+			nullContextForVoidReturningFunctions: %featureToggles.nullContextForVoidReturningFunctions%
+
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\SimpleXMLElementAsXMLMethodReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\SimpleXMLElementXpathMethodReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrSplitFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrTokFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\SprintfFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\SscanfFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrvalFamilyFunctionReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\StrWordCountFunctionDynamicReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicFunctionReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\XMLReaderOpenReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+			- phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionGetAttributesMethodReturnTypeExtension
+		arguments:
+			className: ReflectionClass
+
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionGetAttributesMethodReturnTypeExtension
+		arguments:
+			className: ReflectionClassConstant
+
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionGetAttributesMethodReturnTypeExtension
+		arguments:
+			className: ReflectionFunctionAbstract
+
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionGetAttributesMethodReturnTypeExtension
+		arguments:
+			className: ReflectionParameter
+
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\ReflectionGetAttributesMethodReturnTypeExtension
+		arguments:
+			className: ReflectionProperty
+
+		tags:
+			- phpstan.broker.dynamicMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\Php\DatePeriodConstructorReturnTypeExtension
+		tags:
+			- phpstan.broker.dynamicStaticMethodReturnTypeExtension
+
+	-
+		class: PHPStan\Type\ClosureTypeFactory
+		arguments:
+			parser: @currentPhpVersionPhpParser
+
+	-
+		class: PHPStan\Type\Constant\OversizedArrayBuilder
+
+	exceptionTypeResolver:
+		class: PHPStan\Rules\Exceptions\ExceptionTypeResolver
+		factory: @PHPStan\Rules\Exceptions\DefaultExceptionTypeResolver
+
+	typeSpecifier:
+		class: PHPStan\Analyser\TypeSpecifier
+		factory: @typeSpecifierFactory::create
+
+	typeSpecifierFactory:
+		class: PHPStan\Analyser\TypeSpecifierFactory
+
+	relativePathHelper:
+		class: PHPStan\File\RelativePathHelper
+		factory: PHPStan\File\FuzzyRelativePathHelper
+		arguments:
+			currentWorkingDirectory: %currentWorkingDirectory%
+			analysedPaths: %analysedPaths%
+			fallbackRelativePathHelper: @parentDirectoryRelativePathHelper
+
+	simpleRelativePathHelper:
+		class: PHPStan\File\RelativePathHelper
+		factory: PHPStan\File\SimpleRelativePathHelper
+		arguments:
+			currentWorkingDirectory: %currentWorkingDirectory%
+
+		autowired: false
+
+	parentDirectoryRelativePathHelper:
+		class: PHPStan\File\ParentDirectoryRelativePathHelper
+		arguments:
+			parentDirectory: %currentWorkingDirectory%
+
+		autowired: false
+
+	broker:
+		class: PHPStan\Broker\Broker
+		factory: @brokerFactory::create
+		autowired:
+			- PHPStan\Broker\Broker
+
+	brokerFactory:
+		class: PHPStan\Broker\BrokerFactory
+
+	cacheStorage:
+		class: PHPStan\Cache\FileCacheStorage
+		arguments:
+			directory: %tmpDir%/cache/PHPStan
+
+		autowired: false
+
+	currentPhpVersionRichParser:
+		class: PHPStan\Parser\RichParser
+		arguments:
+			parser: @currentPhpVersionPhpParser
+			lexer: @currentPhpVersionLexer
+
+		autowired: false
+
+	currentPhpVersionSimpleParser:
+		class: PHPStan\Parser\CleaningParser
+		arguments:
+			wrappedParser: @currentPhpVersionSimpleDirectParser
+
+		autowired: false
+
+	currentPhpVersionSimpleDirectParser:
+		class: PHPStan\Parser\SimpleParser
+		arguments:
+			parser: @currentPhpVersionPhpParser
+
+		autowired: false
+
+	defaultAnalysisParser:
+		class: PHPStan\Parser\CachedParser
+		arguments:
+			originalParser: @pathRoutingParser
+			cachedNodesByStringCountMax: %cache.nodesByStringCountMax%
+
+		autowired: false
+
+	phpParserDecorator:
+		class: PHPStan\Parser\PhpParserDecorator
+		arguments:
+			wrappedParser: @defaultAnalysisParser
+
+		autowired: false
+
+	currentPhpVersionLexer:
+		class: PhpParser\Lexer
+		factory: @PHPStan\Parser\LexerFactory::create()
+		autowired: false
+
+	currentPhpVersionPhpParser:
+		class: PhpParser\Parser\Php7
+		arguments:
+			lexer: @currentPhpVersionLexer
+
+		autowired: false
+
+	registry:
+		class: PHPStan\Rules\LazyRegistry
+		autowired:
+			- PHPStan\Rules\Registry
+
+	stubPhpDocProvider:
+		class: PHPStan\PhpDoc\StubPhpDocProvider
+		arguments:
+			parser: @defaultAnalysisParser
+
+	reflectionProviderFactory:
+		class: PHPStan\Reflection\ReflectionProvider\ReflectionProviderFactory
+		arguments:
+			staticReflectionProvider: @betterReflectionProvider
+
+	reflectionProvider:
+		factory: @PHPStan\Reflection\ReflectionProvider\ReflectionProviderFactory::create
+		autowired:
+			- PHPStan\Reflection\ReflectionProvider
+
+	betterReflectionSourceLocator:
+		class: PHPStan\BetterReflection\SourceLocator\Type\SourceLocator
+		factory: @PHPStan\Reflection\BetterReflection\BetterReflectionSourceLocatorFactory::create
+		autowired: false
+
+	originalBetterReflectionReflector:
+		class: PHPStan\BetterReflection\Reflector\DefaultReflector
+		arguments:
+			sourceLocator: @betterReflectionSourceLocator
+
+	betterReflectionReflector:
+		class: PHPStan\Reflection\BetterReflection\Reflector\MemoizingReflector
+		arguments:
+			reflector: @originalBetterReflectionReflector
+
+		autowired: false
+
+	betterReflectionClassReflector:
+		class: PHPStan\BetterReflection\Reflector\ClassReflector
+		arguments:
+			sourceLocator: @betterReflectionSourceLocator
+
+		autowired: false
+
+	betterReflectionFunctionReflector:
+		class: PHPStan\BetterReflection\Reflector\FunctionReflector
+		arguments:
+			sourceLocator: @betterReflectionSourceLocator
+
+		autowired: false
+
+	betterReflectionConstantReflector:
+		class: PHPStan\BetterReflection\Reflector\ConstantReflector
+		arguments:
+			sourceLocator: @betterReflectionSourceLocator
+
+		autowired: false
+
+	nodeScopeResolverReflector:
+		factory: @betterReflectionReflector
+		autowired: false
+
+	betterReflectionProvider:
+		class: PHPStan\Reflection\BetterReflection\BetterReflectionProvider
+		arguments:
+			reflector: @betterReflectionReflector
+
+		autowired: false
+
+	-
+		class: PHPStan\Reflection\BetterReflection\BetterReflectionSourceLocatorFactory
+		arguments:
+			parser: @phpParserDecorator
+			php8Parser: @php8PhpParser
+			scanFiles: %scanFiles%
+			scanDirectories: %scanDirectories%
+			analysedPaths: %analysedPaths%
+			composerAutoloaderProjectPaths: %composerAutoloaderProjectPaths%
+			analysedPathsFromConfig: %analysedPathsFromConfig%
+
+	-
+		implement: PHPStan\Reflection\BetterReflection\BetterReflectionProviderFactory
+
+	-
+		class: PHPStan\Reflection\BetterReflection\SourceStubber\PhpStormStubsSourceStubberFactory
+		arguments:
+			phpParser: @php8PhpParser
+
+	-
+		factory: @PHPStan\Reflection\BetterReflection\SourceStubber\PhpStormStubsSourceStubberFactory::create()
+		autowired:
+			- PHPStan\BetterReflection\SourceLocator\SourceStubber\PhpStormStubsSourceStubber
+
+	-
+		class: PHPStan\BetterReflection\SourceLocator\SourceStubber\ReflectionSourceStubber
+		autowired:
+			- PHPStan\BetterReflection\SourceLocator\SourceStubber\ReflectionSourceStubber
+
+	php8Lexer:
+		class: PhpParser\Lexer\Emulative
+		factory: @PHPStan\Parser\LexerFactory::createEmulative()
+		autowired: false
+
+	php8PhpParser:
+		class: PhpParser\Parser\Php7
+		arguments:
+			lexer: @php8Lexer
+
+		autowired: false
+
+	php8Parser:
+		class: PHPStan\Parser\SimpleParser
+		arguments:
+			parser: @php8PhpParser
+
+		autowired: false
+
+	pathRoutingParser:
+		class: PHPStan\Parser\PathRoutingParser
+		arguments:
+			currentPhpVersionRichParser: @currentPhpVersionRichParser
+			currentPhpVersionSimpleParser: @currentPhpVersionSimpleParser
+			php8Parser: @php8Parser
+
+		autowired: false
+
+	-
+		class: PHPStan\Command\ErrorFormatter\CiDetectedErrorFormatter
+		autowired:
+			- PHPStan\Command\ErrorFormatter\CiDetectedErrorFormatter
+
+	errorFormatter.raw:
+		class: PHPStan\Command\ErrorFormatter\RawErrorFormatter
+
+	errorFormatter.table:
+		class: PHPStan\Command\ErrorFormatter\TableErrorFormatter
+		arguments:
+			simpleRelativePathHelper: @simpleRelativePathHelper
+			showTipsOfTheDay: %tipsOfTheDay%
+			editorUrl: %editorUrl%
+			editorUrlTitle: %editorUrlTitle%
+
+	errorFormatter.checkstyle:
+		class: PHPStan\Command\ErrorFormatter\CheckstyleErrorFormatter
+		arguments:
+			relativePathHelper: @simpleRelativePathHelper
+
+	errorFormatter.json:
+		class: PHPStan\Command\ErrorFormatter\JsonErrorFormatter
+		arguments:
+			pretty: false
+
+	errorFormatter.junit:
+		class: PHPStan\Command\ErrorFormatter\JunitErrorFormatter
+		arguments:
+			relativePathHelper: @simpleRelativePathHelper
+
+	errorFormatter.prettyJson:
+		class: PHPStan\Command\ErrorFormatter\JsonErrorFormatter
+		arguments:
+			pretty: true
+
+	errorFormatter.gitlab:
+		class: PHPStan\Command\ErrorFormatter\GitlabErrorFormatter
+		arguments:
+			relativePathHelper: @simpleRelativePathHelper
+
+	errorFormatter.github:
+		class: PHPStan\Command\ErrorFormatter\GithubErrorFormatter
+		arguments:
+			relativePathHelper: @simpleRelativePathHelper
+
+	errorFormatter.teamcity:
+		class: PHPStan\Command\ErrorFormatter\TeamcityErrorFormatter
+		arguments:
+			relativePathHelper: @simpleRelativePathHelper
+

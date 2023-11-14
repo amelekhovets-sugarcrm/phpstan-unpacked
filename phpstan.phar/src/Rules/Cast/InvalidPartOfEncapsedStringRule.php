@@ -1,0 +1,60 @@
+<?php
+
+declare (strict_types=1);
+namespace PHPStan\Rules\Cast;
+
+use PhpParser\Node;
+use PHPStan\Analyser\Scope;
+use PHPStan\Node\Printer\ExprPrinter;
+use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
+use PHPStan\Rules\RuleLevelHelper;
+use PHPStan\Type\ErrorType;
+use PHPStan\Type\Type;
+use PHPStan\Type\VerbosityLevel;
+use function sprintf;
+/**
+ * @implements Rule<Node\Scalar\Encapsed>
+ */
+class InvalidPartOfEncapsedStringRule implements Rule
+{
+    /**
+     * @var \PHPStan\Node\Printer\ExprPrinter
+     */
+    private $exprPrinter;
+    /**
+     * @var \PHPStan\Rules\RuleLevelHelper
+     */
+    private $ruleLevelHelper;
+    public function __construct(ExprPrinter $exprPrinter, RuleLevelHelper $ruleLevelHelper)
+    {
+        $this->exprPrinter = $exprPrinter;
+        $this->ruleLevelHelper = $ruleLevelHelper;
+    }
+    public function getNodeType() : string
+    {
+        return Node\Scalar\Encapsed::class;
+    }
+    public function processNode(Node $node, Scope $scope) : array
+    {
+        $messages = [];
+        foreach ($node->parts as $part) {
+            if ($part instanceof Node\Scalar\EncapsedStringPart) {
+                continue;
+            }
+            $typeResult = $this->ruleLevelHelper->findTypeToCheck($scope, $part, '', static function (Type $type) : bool {
+                return !$type->toString() instanceof ErrorType;
+            });
+            $partType = $typeResult->getType();
+            if ($partType instanceof ErrorType) {
+                continue;
+            }
+            $stringPartType = $partType->toString();
+            if (!$stringPartType instanceof ErrorType) {
+                continue;
+            }
+            $messages[] = RuleErrorBuilder::message(sprintf('Part %s (%s) of encapsed string cannot be cast to string.', $this->exprPrinter->printExpr($part), $partType->describe(VerbosityLevel::value())))->line($part->getLine())->build();
+        }
+        return $messages;
+    }
+}

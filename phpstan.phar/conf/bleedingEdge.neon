@@ -1,0 +1,44 @@
+parameters:
+	featureToggles:
+		bleedingEdge: true
+		skipCheckGenericClasses!: []
+		explicitMixedInUnknownGenericNew: true
+		explicitMixedForGlobalVariables: true
+		explicitMixedViaIsArray: true
+		arrayFilter: true
+		arrayUnpacking: true
+		nodeConnectingVisitorCompatibility: false
+		nodeConnectingVisitorRule: true
+		disableCheckMissingIterableValueType: true
+		strictUnnecessaryNullsafePropertyFetch: true
+		looseComparison: true
+		consistentConstructor: true
+		checkUnresolvableParameterTypes: true
+		readOnlyByPhpDoc: true
+		phpDocParserRequireWhitespaceBeforeDescription: true
+		runtimeReflectionRules: true
+		notAnalysedTrait: true
+		curlSetOptTypes: true
+		listType: true
+		missingMagicSerializationRule: true
+		nullContextForVoidReturningFunctions: true
+		unescapeStrings: true
+		duplicateStubs: true
+		invarianceComposition: true
+		alwaysTrueAlwaysReported: true
+		disableUnreachableBranchesRules: true
+		varTagType: true
+		closureDefaultParameterTypeRule: true
+		newRuleLevelHelper: true
+		instanceofType: true
+		paramOutVariance: true
+		allInvalidPhpDocs: true
+		strictStaticMethodTemplateTypeVariance: true
+		propertyVariance: true
+		genericPrototypeMessage: true
+		stricterFunctionMap: true
+		invalidPhpDocTagLine: true
+		detectDeadTypeInMultiCatch: true
+		zeroFiles: true
+		callUserFunc: true
+

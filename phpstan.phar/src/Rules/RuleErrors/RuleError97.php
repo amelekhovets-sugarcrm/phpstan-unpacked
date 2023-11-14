@@ -1,0 +1,31 @@
+<?php
+
+declare (strict_types=1);
+namespace PHPStan\Rules\RuleErrors;
+
+use PHPStan\Rules\MetadataRuleError;
+use PHPStan\Rules\NonIgnorableRuleError;
+use PHPStan\Rules\RuleError;
+/**
+ * @internal Use PHPStan\Rules\RuleErrorBuilder instead.
+ */
+class RuleError97 implements RuleError, MetadataRuleError, NonIgnorableRuleError
+{
+    /**
+     * @var string
+     */
+    public $message;
+    /** @var mixed[] */
+    public $metadata;
+    public function getMessage() : string
+    {
+        return $this->message;
+    }
+    /**
+     * @return mixed[]
+     */
+    public function getMetadata() : array
+    {
+        return $this->metadata;
+    }
+}

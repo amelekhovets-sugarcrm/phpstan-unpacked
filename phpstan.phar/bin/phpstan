@@ -1,0 +1,125 @@
+<?php
+
+declare (strict_types=1);
+namespace _PHPStan_c6b09fbdf;
+
+use PHPStan\Command\AnalyseCommand;
+use PHPStan\Command\ClearResultCacheCommand;
+use PHPStan\Command\DumpParametersCommand;
+use PHPStan\Command\FixerWorkerCommand;
+use PHPStan\Command\WorkerCommand;
+use PHPStan\Internal\ComposerHelper;
+use _PHPStan_c6b09fbdf\Symfony\Component\Console\Helper\ProgressBar;
+(function () {
+    \error_reporting(\E_ALL);
+    \ini_set('display_errors', 'stderr');
+    if (\version_compare(\PHP_VERSION, '7.4.0', '<')) {
+        // PHP earlier than 7.4.x with OpCache triggers a bug when we intercept
+        // custom autoloaders' reads to discover file paths. See PHPStan #4881.
+        \ini_set('opcache.enable', 'Off');
+    }
+    if (\PHP_VERSION_ID < 70300) {
+        \gc_disable();
+        // performance boost
+    }
+    \define('__PHPSTAN_RUNNING__', \true);
+    $devOrPharLoader = (require_once 'phar://phpstan.phar/vendor/autoload.php');
+    require_once 'phar://phpstan.phar/preload.php';
+    $composer = ComposerHelper::getComposerConfig(\getcwd());
+    if ($composer !== null) {
+        $vendorDirectory = ComposerHelper::getVendorDirFromComposerConfig(\getcwd(), $composer);
+    } else {
+        $vendorDirectory = \getcwd() . '/' . 'vendor';
+    }
+    $devOrPharLoader->unregister();
+    $composerAutoloadFiles = $GLOBALS['__composer_autoload_files'];
+    if (!\array_key_exists('e88992873b7765f9b5710cab95ba5dd7', $composerAutoloadFiles) || !\array_key_exists('3e76f7f02b41af8cea96018933f6b7e3', $composerAutoloadFiles) || !\array_key_exists('a4a119a56e50fbb293281d9a48007e0e', $composerAutoloadFiles) || !\array_key_exists('0e6d7bf4a5811bfa5cf40c5ccd6fae6a', $composerAutoloadFiles) || !\array_key_exists('e69f7f6ee287b969198c3c9d6777bd38', $composerAutoloadFiles) || !\array_key_exists('0d59ee240a4cd96ddbb4ff164fccea4d', $composerAutoloadFiles) || !\array_key_exists('b686b8e46447868025a15ce5d0cb2634', $composerAutoloadFiles) || !\array_key_exists('8825ede83f2f289127722d4e842cf7e8', $composerAutoloadFiles) || !\array_key_exists('23c18046f52bef3eea034657bafda50f', $composerAutoloadFiles)) {
+        echo "Composer autoloader changed\n";
+        exit(1);
+    }
+    // empty the global variable so that unprefixed functions from user-space can be loaded
+    $GLOBALS['__composer_autoload_files'] = [
+        // fix unprefixed Hoa namespace - files already loaded
+        'e88992873b7765f9b5710cab95ba5dd7' => \true,
+        '3e76f7f02b41af8cea96018933f6b7e3' => \true,
+        // vendor/symfony/polyfill-php80/bootstrap.php
+        'a4a119a56e50fbb293281d9a48007e0e' => \true,
+        // vendor/symfony/polyfill-mbstring/bootstrap.php
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => \true,
+        // vendor/symfony/polyfill-intl-normalizer/bootstrap.php
+        'e69f7f6ee287b969198c3c9d6777bd38' => \true,
+        // vendor/symfony/polyfill-php73/bootstrap.php
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => \true,
+        // vendor/symfony/polyfill-php74/bootstrap.php
+        'b686b8e46447868025a15ce5d0cb2634' => \true,
+        // vendor/symfony/polyfill-intl-grapheme/bootstrap.php
+        '8825ede83f2f289127722d4e842cf7e8' => \true,
+        // vendor/symfony/polyfill-php81/bootstrap.php
+        '23c18046f52bef3eea034657bafda50f' => \true,
+    ];
+    $autoloaderInWorkingDirectory = $vendorDirectory . '/autoload.php';
+    $composerAutoloaderProjectPaths = [];
+    /** @var array<callable>|false $autoloadFunctionsBefore */
+    $autoloadFunctionsBefore = \spl_autoload_functions();
+    if (@\is_file($autoloaderInWorkingDirectory)) {
+        $composerAutoloaderProjectPaths[] = \dirname($autoloaderInWorkingDirectory, 2);
+        require_once $autoloaderInWorkingDirectory;
+    }
+    $autoloadProjectAutoloaderFile = function (string $file) use(&$composerAutoloaderProjectPaths) : void {
+        $path = \dirname(__DIR__) . $file;
+        if (!\extension_loaded('phar')) {
+            if (@\is_file($path)) {
+                $composerAutoloaderProjectPaths[] = \dirname($path, 2);
+                require_once $path;
+            }
+        } else {
+            $pharPath = \Phar::running(\false);
+            if ($pharPath === '') {
+                if (@\is_file($path)) {
+                    $composerAutoloaderProjectPaths[] = \dirname($path, 2);
+                    require_once $path;
+                }
+            } else {
+                $path = \dirname($pharPath) . $file;
+                if (@\is_file($path)) {
+                    $composerAutoloaderProjectPaths[] = \dirname($path, 2);
+                    require_once $path;
+                }
+            }
+        }
+    };
+    $autoloadProjectAutoloaderFile('/../../autoload.php');
+    /** @var array<callable>|false $autoloadFunctionsAfter */
+    $autoloadFunctionsAfter = \spl_autoload_functions();
+    if ($autoloadFunctionsBefore !== \false && $autoloadFunctionsAfter !== \false) {
+        $newAutoloadFunctions = [];
+        foreach ($autoloadFunctionsAfter as $after) {
+            if (\is_array($after) && \count($after) > 0) {
+                if (\is_object($after[0]) && \get_class($after[0]) === \Composer\Autoload\ClassLoader::class) {
+                    continue;
+                }
+                if ($after[0] === 'PHPStan\\PharAutoloader') {
+                    continue;
+                }
+            }
+            foreach ($autoloadFunctionsBefore as $before) {
+                if ($after === $before) {
+                    continue 2;
+                }
+            }
+            $newAutoloadFunctions[] = $after;
+        }
+        $GLOBALS['__phpstanAutoloadFunctions'] = $newAutoloadFunctions;
+    }
+    $devOrPharLoader->register(\true);
+    $application = new \_PHPStan_c6b09fbdf\Symfony\Component\Console\Application('PHPStan - PHP Static Analysis Tool', ComposerHelper::getPhpStanVersion());
+    $application->setDefaultCommand('analyse');
+    ProgressBar::setFormatDefinition('file_download', ' [%bar%] %percent:3s%% %fileSize%');
+    $reversedComposerAutoloaderProjectPaths = \array_reverse($composerAutoloaderProjectPaths);
+    $application->add(new AnalyseCommand($reversedComposerAutoloaderProjectPaths));
+    $application->add(new WorkerCommand($reversedComposerAutoloaderProjectPaths));
+    $application->add(new ClearResultCacheCommand($reversedComposerAutoloaderProjectPaths));
+    $application->add(new FixerWorkerCommand($reversedComposerAutoloaderProjectPaths));
+    $application->add(new DumpParametersCommand($reversedComposerAutoloaderProjectPaths));
+    $application->run();
+})();
